@@ -1,6 +1,6 @@
 <!-- AUTO GENERATED DO NOT EDIT - run 'npm run gen' to update-->
 
-# Chrome DevTools MCP Tool Reference (~5032 cl100k_base tokens)
+# Chrome DevTools MCP Tool Reference (~5427 cl100k_base tokens)
 
 - **[Input automation](#input-automation)** (8 tools)
   - [`click`](#click)
@@ -21,10 +21,12 @@
 - **[Network](#network)** (2 tools)
   - [`get_network_request`](#get_network_request)
   - [`list_network_requests`](#list_network_requests)
-- **[Debugging](#debugging)** (5 tools)
+- **[Debugging](#debugging)** (7 tools)
+  - [`clear_highlight_and_stop_recording`](#clear_highlight_and_stop_recording)
   - [`evaluate_script`](#evaluate_script)
   - [`get_console_message`](#get_console_message)
   - [`list_console_messages`](#list_console_messages)
+  - [`start_recording_and_highlight`](#start_recording_and_highlight)
   - [`take_screenshot`](#take_screenshot)
   - [`take_snapshot`](#take_snapshot)
 
@@ -220,6 +222,14 @@
 
 ## Debugging
 
+### `clear_highlight_and_stop_recording`
+
+**Description:** Best-effort clear active highlight, then stop and finalize the active recording.
+
+**Parameters:** None
+
+---
+
 ### `evaluate_script`
 
 **Description:** Evaluate a JavaScript function inside the currently selected page. Returns the response as JSON,
@@ -261,6 +271,21 @@ Example with arguments: `(el) => {
 - **pageIdx** (integer) _(optional)_: Page number to return (0-based). When omitted, returns the first page.
 - **pageSize** (integer) _(optional)_: Maximum number of messages to return. When omitted, returns all messages.
 - **types** (array) _(optional)_: Filter messages to only return messages of the specified resource types. When omitted or empty, returns all messages.
+
+---
+
+### `start_recording_and_highlight`
+
+**Description:** Start screen recording and apply a deterministic highlight to a target uid on the selected page.
+
+**Parameters:**
+
+- **uid** (string) **(required)**: The uid of an element on the page from the page content snapshot.
+- **fileName** (string) _(optional)_: Optional file name for the MP4 saved in the OS Downloads directory.
+- **fps** (integer) _(optional)_
+- **maxHeight** (integer) _(optional)_
+- **maxWidth** (integer) _(optional)_
+- **quality** (integer) _(optional)_
 
 ---
 

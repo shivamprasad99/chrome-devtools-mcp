@@ -188,7 +188,8 @@ export const cliOptions = {
   experimentalScreencast: {
     type: 'boolean',
     describe:
-      'Exposes experimental screencast tools (requires ffmpeg). Install ffmpeg https://www.ffmpeg.org/download.html and ensure it is available in the MCP server PATH.',
+      'Deprecated in this fork. Screencast tools are not exposed.',
+    hidden: true,
   },
   experimentalWebmcp: {
     type: 'boolean',

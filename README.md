@@ -496,10 +496,12 @@ If you run into any issues, checkout our [troubleshooting guide](./docs/troubles
 - **Network** (2 tools)
   - [`get_network_request`](docs/tool-reference.md#get_network_request)
   - [`list_network_requests`](docs/tool-reference.md#list_network_requests)
-- **Debugging** (5 tools)
+- **Debugging** (7 tools)
+  - [`clear_highlight_and_stop_recording`](docs/tool-reference.md#clear_highlight_and_stop_recording)
   - [`evaluate_script`](docs/tool-reference.md#evaluate_script)
   - [`get_console_message`](docs/tool-reference.md#get_console_message)
   - [`list_console_messages`](docs/tool-reference.md#list_console_messages)
+  - [`start_recording_and_highlight`](docs/tool-reference.md#start_recording_and_highlight)
   - [`take_screenshot`](docs/tool-reference.md#take_screenshot)
   - [`take_snapshot`](docs/tool-reference.md#take_snapshot)
 
@@ -568,10 +570,6 @@ The Chrome DevTools MCP server supports the following configuration option:
 
 - **`--experimentalVision`/ `--experimental-vision`**
   Whether to enable coordinate-based tools such as click_at(x,y). Usually requires a computer-use model able to produce accurate coordinates by looking at screenshots.
-  - **Type:** boolean
-
-- **`--experimentalScreencast`/ `--experimental-screencast`**
-  Exposes experimental screencast tools (requires ffmpeg). Install ffmpeg https://www.ffmpeg.org/download.html and ensure it is available in the MCP server PATH.
   - **Type:** boolean
 
 - **`--experimentalWebmcp`/ `--experimental-webmcp`**

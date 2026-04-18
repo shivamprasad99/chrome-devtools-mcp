@@ -21,6 +21,7 @@ import * as screenshotTools from './screenshot.js';
 import * as scriptTools from './script.js';
 import * as slimTools from './slim/tools.js';
 import * as snapshotTools from './snapshot.js';
+import * as trustpulseRecordingTools from './trustpulse-recording.js';
 import type {ToolDefinition} from './ToolDefinition.js';
 import * as webmcpTools from './webmcp.js';
 
@@ -32,6 +33,8 @@ const TRUSTPULSE_EXCLUDED_TOOLS = new Set<string>([
   'performance_start_trace',
   'performance_stop_trace',
   'resize_page',
+  'screencast_start',
+  'screencast_stop',
   'take_memory_snapshot',
 ]);
 
@@ -53,6 +56,7 @@ export const createTools = (args: ParsedArguments) => {
         ...Object.values(screenshotTools),
         ...Object.values(scriptTools),
         ...Object.values(snapshotTools),
+        ...Object.values(trustpulseRecordingTools),
         ...Object.values(webmcpTools),
       ];
 
