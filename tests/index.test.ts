@@ -14,6 +14,17 @@ import {executablePath} from 'puppeteer';
 
 import type {ToolDefinition} from '../src/tools/ToolDefinition';
 
+const TRUSTPULSE_EXCLUDED_TOOLS = new Set<string>([
+  'drag',
+  'emulate',
+  'lighthouse_audit',
+  'performance_analyze_insight',
+  'performance_start_trace',
+  'performance_stop_trace',
+  'resize_page',
+  'take_memory_snapshot',
+]);
+
 describe('e2e', () => {
   async function withClient(
     cb: (client: Client) => Promise<void>,
@@ -110,8 +121,12 @@ describe('e2e', () => {
           }
         }
       }
-      definedNames.sort();
-      assert.deepStrictEqual(exposedNames, definedNames);
+      const expectedExposedNames = definedNames
+        .filter(name => {
+          return !TRUSTPULSE_EXCLUDED_TOOLS.has(name);
+        })
+        .sort();
+      assert.deepStrictEqual(exposedNames, expectedExposedNames);
     });
   });
 

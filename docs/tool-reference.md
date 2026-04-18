@@ -1,10 +1,9 @@
 <!-- AUTO GENERATED DO NOT EDIT - run 'npm run gen' to update-->
 
-# Chrome DevTools MCP Tool Reference (~6962 cl100k_base tokens)
+# Chrome DevTools MCP Tool Reference (~5032 cl100k_base tokens)
 
-- **[Input automation](#input-automation)** (9 tools)
+- **[Input automation](#input-automation)** (8 tools)
   - [`click`](#click)
-  - [`drag`](#drag)
   - [`fill`](#fill)
   - [`fill_form`](#fill_form)
   - [`handle_dialog`](#handle_dialog)
@@ -19,21 +18,12 @@
   - [`new_page`](#new_page)
   - [`select_page`](#select_page)
   - [`wait_for`](#wait_for)
-- **[Emulation](#emulation)** (2 tools)
-  - [`emulate`](#emulate)
-  - [`resize_page`](#resize_page)
-- **[Performance](#performance)** (4 tools)
-  - [`performance_analyze_insight`](#performance_analyze_insight)
-  - [`performance_start_trace`](#performance_start_trace)
-  - [`performance_stop_trace`](#performance_stop_trace)
-  - [`take_memory_snapshot`](#take_memory_snapshot)
 - **[Network](#network)** (2 tools)
   - [`get_network_request`](#get_network_request)
   - [`list_network_requests`](#list_network_requests)
-- **[Debugging](#debugging)** (6 tools)
+- **[Debugging](#debugging)** (5 tools)
   - [`evaluate_script`](#evaluate_script)
   - [`get_console_message`](#get_console_message)
-  - [`lighthouse_audit`](#lighthouse_audit)
   - [`list_console_messages`](#list_console_messages)
   - [`take_screenshot`](#take_screenshot)
   - [`take_snapshot`](#take_snapshot)
@@ -48,18 +38,6 @@
 
 - **uid** (string) **(required)**: The uid of an element on the page from the page content snapshot
 - **dblClick** (boolean) _(optional)_: Set to true for double clicks. Default is false.
-- **includeSnapshot** (boolean) _(optional)_: Whether to include a snapshot in the response. Default is false.
-
----
-
-### `drag`
-
-**Description:** [`Drag`](#drag) an element onto another element
-
-**Parameters:**
-
-- **from_uid** (string) **(required)**: The uid of the element to [`drag`](#drag)
-- **to_uid** (string) **(required)**: The uid of the element to drop into
 - **includeSnapshot** (boolean) _(optional)_: Whether to include a snapshot in the response. Default is false.
 
 ---
@@ -213,79 +191,6 @@
 
 ---
 
-## Emulation
-
-### `emulate`
-
-**Description:** Emulates various features on the selected page.
-
-**Parameters:**
-
-- **colorScheme** (enum: "dark", "light", "auto") _(optional)_: [`Emulate`](#emulate) the dark or the light mode. Set to "auto" to reset to the default.
-- **cpuThrottlingRate** (number) _(optional)_: Represents the CPU slowdown factor. Omit or set the rate to 1 to disable throttling
-- **geolocation** (string) _(optional)_: Geolocation (`&lt;latitude&gt;x&lt;longitude&gt;`) to [`emulate`](#emulate). Latitude between -90 and 90. Longitude between -180 and 180. Omit to clear the geolocation override.
-- **networkConditions** (enum: "Offline", "Slow 3G", "Fast 3G", "Slow 4G", "Fast 4G") _(optional)_: Throttle network. Omit to disable throttling.
-- **userAgent** (string) _(optional)_: User agent to [`emulate`](#emulate). Set to empty string to clear the user agent override.
-- **viewport** (string) _(optional)_: [`Emulate`](#emulate) device viewports '&lt;width&gt;x&lt;height&gt;x&lt;devicePixelRatio&gt;[,mobile][,touch][,landscape]'. 'touch' and 'mobile' to [`emulate`](#emulate) mobile devices. 'landscape' to [`emulate`](#emulate) landscape mode.
-
----
-
-### `resize_page`
-
-**Description:** Resizes the selected page's window so that the page has specified dimension
-
-**Parameters:**
-
-- **height** (number) **(required)**: Page height
-- **width** (number) **(required)**: Page width
-
----
-
-## Performance
-
-### `performance_analyze_insight`
-
-**Description:** Provides more detailed information on a specific Performance Insight of an insight set that was highlighted in the results of a trace recording.
-
-**Parameters:**
-
-- **insightName** (string) **(required)**: The name of the Insight you want more information on. For example: "DocumentLatency" or "LCPBreakdown"
-- **insightSetId** (string) **(required)**: The id for the specific insight set. Only use the ids given in the "Available insight sets" list.
-
----
-
-### `performance_start_trace`
-
-**Description:** Start a performance trace on the selected webpage. Use to find frontend performance issues, Core Web Vitals (LCP, INP, CLS), and improve page load speed.
-
-**Parameters:**
-
-- **autoStop** (boolean) _(optional)_: Determines if the trace recording should be automatically stopped.
-- **filePath** (string) _(optional)_: The absolute file path, or a file path relative to the current working directory, to save the raw trace data. For example, trace.json.gz (compressed) or trace.json (uncompressed).
-- **reload** (boolean) _(optional)_: Determines if, once tracing has started, the current selected page should be automatically reloaded. Navigate the page to the right URL using the [`navigate_page`](#navigate_page) tool BEFORE starting the trace if reload or autoStop is set to true.
-
----
-
-### `performance_stop_trace`
-
-**Description:** Stop the active performance trace recording on the selected webpage.
-
-**Parameters:**
-
-- **filePath** (string) _(optional)_: The absolute file path, or a file path relative to the current working directory, to save the raw trace data. For example, trace.json.gz (compressed) or trace.json (uncompressed).
-
----
-
-### `take_memory_snapshot`
-
-**Description:** Capture a heap snapshot of the currently selected page. Use to analyze the memory distribution of JavaScript objects and debug memory leaks.
-
-**Parameters:**
-
-- **filePath** (string) **(required)**: A path to a .heapsnapshot file to save the heapsnapshot to.
-
----
-
 ## Network
 
 ### `get_network_request`
@@ -323,12 +228,12 @@ so returned values have to be JSON-serializable.
 **Parameters:**
 
 - **function** (string) **(required)**: A JavaScript function declaration to be executed by the tool in the currently selected page.
-  Example without arguments: `() => {
+Example without arguments: `() => {
   return document.title
 }` or `async () => {
   return await fetch("example.com")
 }`.
-  Example with arguments: `(el) => {
+Example with arguments: `(el) => {
   return el.innerText;
 }`
 
@@ -343,18 +248,6 @@ so returned values have to be JSON-serializable.
 **Parameters:**
 
 - **msgid** (number) **(required)**: The msgid of a console message on the page from the listed console messages
-
----
-
-### `lighthouse_audit`
-
-**Description:** Get Lighthouse score and reports for accessibility, SEO and best practices. This excludes performance. For performance audits, run [`performance_start_trace`](#performance_start_trace)
-
-**Parameters:**
-
-- **device** (enum: "desktop", "mobile") _(optional)_: Device to [`emulate`](#emulate).
-- **mode** (enum: "navigation", "snapshot") _(optional)_: "navigation" reloads &amp; audits. "snapshot" analyzes current state.
-- **outputDirPath** (string) _(optional)_: Directory for reports. If omitted, uses temporary files.
 
 ---
 

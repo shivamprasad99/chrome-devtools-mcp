@@ -57,7 +57,8 @@
         "name": "include_snapshot",
         "argType": "boolean"
       }
-    ]
+    ],
+    "isDeprecated": true
   },
   {
     "name": "emulate",
@@ -86,7 +87,8 @@
         "name": "viewport_length",
         "argType": "number"
       }
-    ]
+    ],
+    "isDeprecated": true
   },
   {
     "name": "evaluate",
@@ -221,7 +223,8 @@
         "name": "output_dir_path_length",
         "argType": "number"
       }
-    ]
+    ],
+    "isDeprecated": true
   },
   {
     "name": "list_console_messages",
@@ -347,7 +350,8 @@
         "name": "insight_name_length",
         "argType": "number"
       }
-    ]
+    ],
+    "isDeprecated": true
   },
   {
     "name": "performance_start_trace",
@@ -364,7 +368,8 @@
         "name": "file_path_length",
         "argType": "number"
       }
-    ]
+    ],
+    "isDeprecated": true
   },
   {
     "name": "performance_stop_trace",
@@ -373,7 +378,8 @@
         "name": "file_path_length",
         "argType": "number"
       }
-    ]
+    ],
+    "isDeprecated": true
   },
   {
     "name": "press_key",
@@ -408,7 +414,8 @@
         "name": "height",
         "argType": "number"
       }
-    ]
+    ],
+    "isDeprecated": true
   },
   {
     "name": "screencast_start",
@@ -447,7 +454,8 @@
         "name": "file_path_length",
         "argType": "number"
       }
-    ]
+    ],
+    "isDeprecated": true
   },
   {
     "name": "take_screenshot",

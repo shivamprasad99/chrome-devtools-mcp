@@ -24,6 +24,17 @@ import * as snapshotTools from './snapshot.js';
 import type {ToolDefinition} from './ToolDefinition.js';
 import * as webmcpTools from './webmcp.js';
 
+const TRUSTPULSE_EXCLUDED_TOOLS = new Set<string>([
+  'drag',
+  'emulate',
+  'lighthouse_audit',
+  'performance_analyze_insight',
+  'performance_start_trace',
+  'performance_stop_trace',
+  'resize_page',
+  'take_memory_snapshot',
+]);
+
 export const createTools = (args: ParsedArguments) => {
   const rawTools = args.slim
     ? Object.values(slimTools)
@@ -54,9 +65,13 @@ export const createTools = (args: ParsedArguments) => {
     }
   }
 
-  tools.sort((a, b) => {
+  const filteredTools = tools.filter(tool => {
+    return !TRUSTPULSE_EXCLUDED_TOOLS.has(tool.name);
+  });
+
+  filteredTools.sort((a, b) => {
     return a.name.localeCompare(b.name);
   });
 
-  return tools;
+  return filteredTools;
 };
