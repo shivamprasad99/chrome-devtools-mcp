@@ -26,6 +26,7 @@ import type {ToolDefinition} from './ToolDefinition.js';
 import * as webmcpTools from './webmcp.js';
 
 const TRUSTPULSE_EXCLUDED_TOOLS = new Set<string>([
+  'clear_highlight_and_stop_recording',
   'drag',
   'emulate',
   'lighthouse_audit',
@@ -35,6 +36,7 @@ const TRUSTPULSE_EXCLUDED_TOOLS = new Set<string>([
   'resize_page',
   'screencast_start',
   'screencast_stop',
+  'start_recording_and_highlight',
   'take_memory_snapshot',
 ]);
 

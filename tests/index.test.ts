@@ -15,6 +15,7 @@ import {executablePath} from 'puppeteer';
 import type {ToolDefinition} from '../src/tools/ToolDefinition';
 
 const TRUSTPULSE_EXCLUDED_TOOLS = new Set<string>([
+  'clear_highlight_and_stop_recording',
   'drag',
   'emulate',
   'lighthouse_audit',
@@ -22,6 +23,7 @@ const TRUSTPULSE_EXCLUDED_TOOLS = new Set<string>([
   'performance_start_trace',
   'performance_stop_trace',
   'resize_page',
+  'start_recording_and_highlight',
   'take_memory_snapshot',
 ]);
 
