@@ -1,5 +1,5 @@
 {
-  "name": "trustpulse-browser-mcp",
+  "name": "@shivam/trustpulse-browser-mcp",
   "version": "0.21.0",
   "description": "MCP server for Chrome DevTools",
   "type": "module",
