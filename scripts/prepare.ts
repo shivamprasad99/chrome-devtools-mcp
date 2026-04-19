@@ -11,7 +11,6 @@ import {resolve} from 'node:path';
 const projectRoot = process.cwd();
 
 const filesToRemove = [
-  'node_modules/chrome-devtools-frontend/package.json',
   'node_modules/chrome-devtools-frontend/front_end/models/trace/lantern/testing',
   'node_modules/chrome-devtools-frontend/front_end/third_party/intl-messageformat/package/package.json',
 ];
