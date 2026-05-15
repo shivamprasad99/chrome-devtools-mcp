@@ -15,6 +15,7 @@ import {ToolCategory} from './categories.js';
 import {definePageTool} from './ToolDefinition.js';
 
 const DEFAULT_TIMEOUT_MS = 90_000;
+const DEFAULT_WAIT_DELAY_MS = 20_000;
 
 type SingleFileController = {
   capture(
@@ -75,7 +76,7 @@ async function captureWithSingleFileCli(input: {
     browserLoadMaxTime: input.timeoutMs,
     browserCaptureMaxTime: input.timeoutMs,
     browserWaitUntil: 'load',
-    browserWaitUntilDelay: input.waitDelayMs ?? 500,
+    browserWaitUntilDelay: input.waitDelayMs ?? DEFAULT_WAIT_DELAY_MS,
     compressHTML: true,
     blockScripts: true,
     insertSingleFileComment: true,
@@ -135,7 +136,7 @@ export const captureSingleFile = definePageTool({
       .nonnegative()
       .optional()
       .describe(
-        'Additional delay after page load before capture, in milliseconds. Defaults to 500.',
+        `Additional delay after page load before capture, in milliseconds. Defaults to ${DEFAULT_WAIT_DELAY_MS}.`,
       ),
   },
   handler: async (request, response) => {
