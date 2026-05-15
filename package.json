@@ -1,6 +1,6 @@
 {
   "name": "@shivamprasad99/trustpulse-browser-mcp",
-  "version": "0.21.1",
+  "version": "0.21.2",
   "description": "MCP server for Chrome DevTools",
   "type": "module",
   "bin": {
@@ -60,6 +60,7 @@
     "lighthouse": "13.1.0",
     "puppeteer-core": "24.41.0",
     "semver": "^7.7.4",
+    "single-file-cli": "^2.0.83",
     "yargs": "18.0.0",
     "zod": "3.25.76"
   },

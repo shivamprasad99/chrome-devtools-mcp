@@ -19,6 +19,7 @@ import * as performanceTools from './performance.js';
 import * as screencastTools from './screencast.js';
 import * as screenshotTools from './screenshot.js';
 import * as scriptTools from './script.js';
+import * as singlefileTools from './singlefile.js';
 import * as slimTools from './slim/tools.js';
 import * as snapshotTools from './snapshot.js';
 import * as trustpulseRecordingTools from './trustpulse-recording.js';
@@ -57,6 +58,7 @@ export const createTools = (args: ParsedArguments) => {
         ...Object.values(screencastTools),
         ...Object.values(screenshotTools),
         ...Object.values(scriptTools),
+        ...Object.values(singlefileTools),
         ...Object.values(snapshotTools),
         ...Object.values(trustpulseRecordingTools),
         ...Object.values(webmcpTools),
